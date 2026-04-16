@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Olga Vysotska
 **PostDoc in Robotics** | Software Engineer
 
