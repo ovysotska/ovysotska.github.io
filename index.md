@@ -12,15 +12,13 @@ Currently a Postdoc at ETH Zurich (RSL), I specialize in the navigation and loca
 
 ## 🚀 Projects
 
----
-
 ### Autonomous Construction Site Digitalization
-**Innosuisse Project with Implementation Partner** | *2025 – 2027*
+Innosuisse Project with Implementation Partner | *2025 – 2027*
 
 <table>
   <tr>
     <td width="35%">
-      <img src="/assets/img/robot-digitalization.jpg" alt="Autonomous Robot" style="border-radius: 8px; width: 100%;">
+      <img src="/assets/img/construction_navigation.JPG" alt="Autonomous Robot" style="border-radius: 8px; width: 100%;">
     </td>
     <td>
       This research focuses on deploying autonomous wheeled robots for digitalization missions within buildings under construction. By generating frequent <strong>Digital Twins</strong>, the project enables real-time monitoring of the construction site’s physical state.
@@ -30,15 +28,14 @@ Currently a Postdoc at ETH Zurich (RSL), I specialize in the navigation and loca
   </tr>
 </table>
 
----
 
 ### Robot and AR Devices Localization
-**Design++ PostDoc Fellowship** | *2023 – 2025*
+Design++ PostDoc Fellowship | *2023 – 2025*
 
 <table>
   <tr>
     <td width="35%">
-      <img src="/assets/img/ar-localization.jpg" alt="AR Localization" style="border-radius: 8px; width: 100%;">
+      <img src="/assets/img/localization.png" alt="AR Localization" style="border-radius: 8px; width: 100%;">
     </td>
     <td>
       Construction sites are characterized by repetitive, featureless geometries. This project develops robust localization frameworks for robots and AR devices to navigate these visually degraded and highly ambiguous environments.
@@ -50,5 +47,4 @@ Currently a Postdoc at ETH Zurich (RSL), I specialize in the navigation and loca
   </tr>
 </table>
 
----
 
