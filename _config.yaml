@@ -1,4 +1,15 @@
 remote_theme: pages-themes/minimal
+
 title: Olga Vysotska
-description: "PostDoc in Robotics |  Research Scientist | Software Engineer"
+
 logo: /assets/img/olga_img.JPG
+
+linkedin: olga-vysotska-84313256
+google_scholar: YwPsGKQAAAAJ
+
+description: >
+  PostDoc in Robotics |  Research Scientist | Software Engineer
+  <br><br>
+  [📩 Email](mailto:your.email@ethz.ch) <br>
+  [👤 LinkedIn](https://www.linkedin.com/in/yourprofile) <br>
+  [🎓 Google Scholar](https://scholar.google.com/citations?user=yourID)
