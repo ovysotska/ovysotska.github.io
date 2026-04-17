@@ -8,7 +8,6 @@ Currently a Postdoc at ETH Zurich (RSL), I specialize in the navigation and loca
 
 [LinkedIn](https://www.linkedin.com/in/olga-vysotska-84313256/) | [Google Scholar](https://scholar.google.com.ua/citations?user=YwPsGKQAAAAJ)
 
----
 
 ## 🚀 Projects
 
