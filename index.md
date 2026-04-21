@@ -3,7 +3,7 @@ layout: default
 title: ovysotska
 ---
 
-## 🤖 About Me
+## About Me
 Currently a Postdoc at ETH Zurich (RSL), I specialize in the navigation and localization of mobile robots on construction sites. My background bridges the gap between industry-leading research—previously serving as a Research Scientist at Microsoft—and hands-on engineering for autonomous driving and warehouse startups. I earned my PhD from the University of Bonn, with a research focus on visual place recognition within complex, dynamic environments.
 
 [LinkedIn](https://www.linkedin.com/in/olga-vysotska-84313256/) | [Google Scholar](https://scholar.google.com.ua/citations?user=YwPsGKQAAAAJ)
@@ -46,4 +46,8 @@ Design++ PostDoc Fellowship | *2023 – 2025*
   </tr>
 </table>
 
+## 📜 Certifications
 
+* [Neural Networks and Deep Learning](assets/pdfs/Coursera_deep_learning_machine_learning.pdf)
+* [Improving Deep Neural Networks](assets/pdfs/Coursera_deep_learning_tuning.pdf){:target="_blank"}
+* [Machine Learning](assets/pdfs/Coursera_machine_learning.pdf){:target="_blank"}
