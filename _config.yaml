@@ -1,13 +1,7 @@
 remote_theme: pages-themes/minimal
 
 title: Olga Vysotska
-description: >
-PostDoc in Robotics |  Research Scientist | Software Engineer
-<br></br>
-<a href="https://linkedin.com/in/your-profile">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" width="20" height="20" style="vertical-align:middle;"> 
-    Connect on LinkedIn
-  </a>
+description: PostDoc in Robotics |  Research Scientist | Software Engineer
 
 logo: /assets/img/olga_img.JPG
 
