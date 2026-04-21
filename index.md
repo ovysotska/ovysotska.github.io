@@ -48,6 +48,6 @@ Design++ PostDoc Fellowship | *2023 – 2025*
 
 ## 📜 Certifications
 
-* [Neural Networks and Deep Learning](assets/pdfs/Coursera_deep_learning_machine_learning.pdf)
+* [Neural Networks and Deep Learning](assets/pdfs/Coursera_deep_learning_machine_learning.pdf){:target="_blank"}
 * [Improving Deep Neural Networks](assets/pdfs/Coursera_deep_learning_tuning.pdf){:target="_blank"}
 * [Machine Learning](assets/pdfs/Coursera_machine_learning.pdf){:target="_blank"}
