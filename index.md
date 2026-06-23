@@ -51,3 +51,6 @@ Design++ PostDoc Fellowship | *2023 – 2025*
 * [Neural Networks and Deep Learning](assets/pdfs/Coursera_deep_learning_machine_learning.pdf){:target="_blank"}
 * [Improving Deep Neural Networks](assets/pdfs/Coursera_deep_learning_tuning.pdf){:target="_blank"}
 * [Machine Learning](assets/pdfs/Coursera_machine_learning.pdf){:target="_blank"}
+* Project Management (Google Certificate)
+  * [Project Management Foundations](assets/pdfs/Coursera_google_project_management_foundations.pdf)
+  * [Project Management Project Initiations](assets/pdfs/Coursera_project_management_initiation.pdf)
