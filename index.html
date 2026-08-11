@@ -155,7 +155,10 @@
   }
   .project-banner .banner-body{ position:relative; z-index:2; padding:44px; color:#fff; max-width:720px; }
   .project-banner h3{ color:#fff; font-size:clamp(1.7rem,3vw,2.4rem); }
-  .project-banner p{ margin-top:14px; color:rgba(255,255,255,0.86); font-size:16.5px; max-width:56ch; }
+  .project-banner p{
+    margin-top:14px; color:rgba(255,255,255,0.86); font-size:16.5px; max-width:56ch;
+    display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; line-clamp:3; overflow:hidden;
+  }
   .banner-meta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
   .banner-meta .tag{ background:rgba(255,255,255,0.16); color:#fff; box-shadow:none; backdrop-filter:blur(6px); }
   .banner-meta a.tag{ text-decoration:none; }
@@ -225,6 +228,7 @@
 
     .project-banner{ height:52vh; }
     .project-banner .banner-body{ padding:26px; }
+    .project-banner p{ -webkit-line-clamp:2; line-clamp:2; }
 
     .pub-item{ flex-direction:column; align-items:flex-start; gap:6px; padding:18px; }
     .pub-year{ width:auto; }
