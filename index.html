@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Olga Vysotska — PostDoc in Robotics</title>
+<meta name="description" content="PostDoc in Robotics · Research Scientist · Software Engineer. Navigation and localization of mobile robots, ETH Zurich.">
+<meta property="og:title" content="Olga Vysotska">
+<meta property="og:description" content="PostDoc in Robotics · Research Scientist · Software Engineer">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ovysotska.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://ovysotska.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F7F6;
+    --paper-deep:#EBEFED;
+    --ink:#12181D;
+    --ink-soft:#4F5C63;
+    --sky:#2F6FE0;
+    --sky-deep:#2557B8;
+    --sky-soft: rgba(47,111,224,0.14);
+    --sun:#F0A93E;
+    --sun-soft: rgba(240,169,62,0.18);
+    --moss:#5FA66A;
+    --moss-soft: rgba(95,166,106,0.18);
+    --night:#10161C;
+    --font-display:'Bricolage Grotesque', sans-serif;
+    --font-body:'Plus Jakarta Sans', sans-serif;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--font-body); font-size:17px; line-height:1.65;
+    overflow-x:hidden;
+  }
+
+  a{ color:var(--sky-deep); }
+  a:focus-visible, button:focus-visible{ outline:2.5px solid var(--sky-deep); outline-offset:3px; }
+
+  h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-height:1.02; }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; position:relative; }
+
+  .tag{
+    display:inline-block; font-weight:600; font-size:13px; padding:9px 16px;
+    background:#fff; border-radius:999px; box-shadow:0 6px 18px rgba(18,24,29,0.08);
+    color:var(--ink);
+  }
+
+  .pill-btn{
+    display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:15px;
+    padding:14px 26px; border-radius:999px; text-decoration:none; border:2px solid var(--ink);
+    color:var(--ink); background:transparent; transition:transform .18s ease, background .18s ease, color .18s ease;
+  }
+  .pill-btn:hover{ transform:translateY(-2px); }
+  .pill-btn.solid{ background:var(--sky-deep); border-color:var(--sky-deep); color:#fff; }
+  .pill-btn.solid:hover{ background:var(--ink); border-color:var(--ink); }
+
+  .blob{
+    position:absolute; filter:blur(2px); z-index:0; pointer-events:none;
+    border-radius:42% 58% 65% 35% / 45% 45% 55% 55%;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:80; padding:22px 0; transition:background .3s, padding .3s, box-shadow .3s;
+  }
+  .nav.scrolled{ background:rgba(245,247,246,0.88); backdrop-filter:blur(10px); padding:14px 0; box-shadow:0 1px 0 rgba(18,24,29,0.06); }
+  .nav .wrap{ display:flex; align-items:center; justify-content:space-between; }
+  .nav-mark{ font-family:var(--font-display); font-weight:700; font-size:19px; text-decoration:none; color:var(--ink); }
+  .nav-links{ display:flex; gap:8px; list-style:none; margin:0; padding:0; align-items:center; }
+  .nav-links a{
+    text-decoration:none; color:var(--ink); font-weight:600; font-size:14.5px;
+    padding:9px 16px; border-radius:999px; transition:background .18s;
+  }
+  .nav-links a:hover{ background:var(--paper-deep); }
+  .nav-toggle{ display:none; background:none; border:2px solid var(--ink); border-radius:10px; width:40px; height:40px; font-size:17px; cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{ position:relative; padding:64px 0 40px; overflow:hidden; }
+  .hero .wrap{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:20px; align-items:center; min-height:78vh; }
+  .hero-blob-a{ width:280px; height:280px; background:var(--sun-soft); top:-40px; right:8%; }
+  .hero-blob-b{ width:180px; height:180px; background:var(--moss-soft); bottom:0; left:2%; }
+
+  .eyebrow{ font-weight:700; color:var(--sky-deep); font-size:14.5px; letter-spacing:0.02em; margin-bottom:18px; display:block;}
+  .hero h1{ font-size:clamp(3rem, 7vw, 5.4rem); font-weight:700; letter-spacing:-0.02em; }
+  .hero h1 span{ color:var(--sky-deep); }
+  .hero .role{ font-size:19px; color:var(--ink-soft); font-weight:500; margin-top:20px; max-width:38ch; }
+  .cta-row{ margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; }
+
+  .hero-photo-stage{ position:relative; z-index:2; }
+  .blob-shape{
+    position:relative; aspect-ratio:1/1.05; max-width:440px; margin:0 auto;
+    border-radius:44% 56% 60% 40% / 48% 42% 58% 52%;
+    overflow:hidden; box-shadow:0 30px 60px -20px rgba(18,24,29,0.35);
+  }
+  .blob-shape img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .floating-tag{
+    position:absolute; z-index:3;
+  }
+  .ft1{ top:2%; left:-8%; }
+  .ft2{ bottom:10%; right:-10%; background:var(--sky-deep); color:#fff; box-shadow:0 10px 26px rgba(37,87,184,0.35); }
+  .ft3{ bottom:-4%; left:6%; }
+
+  .scroll-cue{
+    display:flex; align-items:center; gap:10px; font-size:13px; font-weight:600; color:var(--ink-soft);
+    margin-top:56px;
+  }
+  .scroll-cue .chev{ font-size:16px; }
+
+  /* ---------- SECTIONS ---------- */
+  section{ position:relative; padding:120px 0; }
+  .section-eyebrow{ font-weight:700; color:var(--sky-deep); font-size:14.5px; margin-bottom:16px; }
+
+  /* ABOUT */
+  .about{ background:var(--paper-deep); }
+  .about-inner{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:start; }
+  .statement{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(1.7rem,3.4vw,2.5rem);
+    line-height:1.28; letter-spacing:-0.01em;
+  }
+  .statement em{ font-style:normal; color:var(--sky-deep); }
+  .about-copy{ margin-top:26px; color:var(--ink-soft); font-size:17px; max-width:56ch; }
+  .fact-card{
+    background:#fff; border-radius:26px; padding:28px; box-shadow:0 20px 46px -22px rgba(18,24,29,0.22);
+    position:relative;
+  }
+  .fact-card .k{ font-size:13px; font-weight:700; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; }
+  .fact-card .v{ font-family:var(--font-display); font-size:22px; margin-top:6px; }
+  .fact-card + .fact-card{ margin-top:18px; }
+  .tag-cloud{ margin-top:26px; display:flex; flex-wrap:wrap; gap:10px; }
+
+  /* PROJECTS */
+  .project-banner{
+    position:relative; border-radius:34px; overflow:hidden; height:64vh; min-height:420px;
+    display:flex; align-items:flex-end; margin-bottom:26px;
+  }
+  .project-banner img{
+    position:absolute; inset:-10% -5%; width:110%; height:120%; object-fit:cover; z-index:0;
+  }
+  .project-banner::after{
+    content:""; position:absolute; inset:0; z-index:1;
+    background:linear-gradient(to top, rgba(16,22,28,0.78) 0%, rgba(16,22,28,0.25) 45%, rgba(16,22,28,0) 70%);
+  }
+  .project-banner .banner-body{ position:relative; z-index:2; padding:44px; color:#fff; max-width:720px; }
+  .project-banner h3{ color:#fff; font-size:clamp(1.7rem,3vw,2.4rem); }
+  .project-banner p{ margin-top:14px; color:rgba(255,255,255,0.86); font-size:16.5px; max-width:56ch; }
+  .banner-meta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
+  .banner-meta .tag{ background:rgba(255,255,255,0.16); color:#fff; box-shadow:none; backdrop-filter:blur(6px); }
+  .banner-meta a.tag{ text-decoration:none; }
+
+  /* CERTIFICATIONS */
+  .cert-cluster{ display:flex; flex-wrap:wrap; gap:18px; }
+  .cert-badge{
+    background:#fff; border-radius:20px; padding:20px 24px; box-shadow:0 16px 34px -18px rgba(18,24,29,0.25);
+    display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--ink);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .cert-badge:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -16px rgba(18,24,29,0.3); }
+  .cert-badge .dot{ width:38px; height:38px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; font-size:16px; color:#fff; }
+  .cert-badge span.name{ font-weight:600; font-size:15px; }
+  .cert-group-label{ font-weight:700; color:var(--ink-soft); font-size:14px; margin:34px 0 16px; }
+  .cert-group-label:first-of-type{ margin-top:0; }
+
+  /* PUBLICATIONS */
+  .pub-list{ display:flex; flex-direction:column; gap:10px; }
+  .pub-item{
+    display:flex; align-items:flex-start; gap:18px; background:#fff; border-radius:16px; padding:16px 20px;
+    box-shadow:0 10px 22px -16px rgba(18,24,29,0.22);
+  }
+  .pub-year{
+    font-family:var(--font-display); font-weight:700; font-size:16px; color:var(--sky-deep);
+    flex:none; width:44px; margin-top:1px;
+  }
+  .pub-body{ min-width:0; }
+  .pub-title{ font-size:15px; font-weight:600; }
+  .pub-meta{ margin-top:3px; color:var(--ink-soft); font-size:13px; }
+  .pub-meta .pub-venue{ font-style:italic; }
+  .pub-item .tag{ margin-left:auto; margin-top:1px; flex:none; text-decoration:none; font-size:12px; padding:7px 14px; }
+
+  /* FOOTER */
+  footer{ background:var(--night); color:#fff; padding:90px 0 50px; position:relative; overflow:hidden; }
+  footer h2{ color:#fff; font-size:clamp(2.2rem,5vw,3.6rem); max-width:14ch; }
+  .foot-links{ display:flex; gap:26px; margin-top:36px; flex-wrap:wrap; }
+  .foot-links a{ color:#fff; text-decoration:none; font-weight:600; font-size:15px; opacity:0.85; }
+  .foot-links a:hover{ opacity:1; }
+  .foot-bottom{ margin-top:70px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; color:rgba(255,255,255,0.45); font-size:13px; }
+  footer .blob{ background:linear-gradient(135deg, var(--sky) 0%, var(--sun) 100%); opacity:0.18; }
+  .fblob1{ width:340px; height:340px; top:-120px; right:-80px; }
+  .foot-cta{ margin-top:32px; }
+  footer .pill-btn.solid:hover{ background:var(--sky); border-color:var(--sky); }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; } }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 920px){
+    .nav-links{
+      position:absolute; top:100%; left:16px; right:16px; background:#fff; border-radius:18px;
+      flex-direction:column; align-items:stretch; padding:10px; box-shadow:0 20px 40px -14px rgba(18,24,29,0.25);
+      display:none; gap:2px;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links a{ padding:14px 16px; }
+    .nav-toggle{ display:block; }
+
+    .hero .wrap{ grid-template-columns:1fr; min-height:auto; gap:52px; }
+    .hero-photo-stage{ order:-1; }
+    .blob-shape{ max-width:300px; }
+
+    .about-inner{ grid-template-columns:1fr; }
+
+    .project-banner{ height:52vh; }
+    .project-banner .banner-body{ padding:26px; }
+
+    .pub-item{ flex-direction:column; align-items:flex-start; gap:6px; padding:18px; }
+    .pub-year{ width:auto; }
+    .pub-item .tag{ margin-left:0; }
+
+    .blob{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <div class="wrap">
+    <a class="nav-mark" href="#top">Olga Vysotska</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="blob hero-blob-a"></div>
+    <div class="blob hero-blob-b"></div>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">PostDoc in Robotics · ETH Zürich</span>
+        <h1>Olga<br><span>Vysotska</span></h1>
+        <p class="role">I build localization systems for autonomous robots—outdoors, indoors, GPS-denied, and wherever the world refuses to stay still. The messier the environment, the more interesting the problem.</p>
+        <div class="cta-row">
+          <a class="pill-btn solid" href="#projects">See the projects</a>
+          <a class="pill-btn" href="https://www.linkedin.com/in/olga-vysotska-84313256/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="scroll-cue"><span class="chev">↓</span> Scroll</div>
+      </div>
+      <div class="hero-photo-stage">
+        <div class="blob-shape">
+          <img src="/assets/img/olga_img.JPG" alt="Portrait of Olga Vysotska">
+        </div>
+        <span class="tag floating-tag ft1">SLAM &amp; Localization</span>
+        <span class="tag floating-tag ft2">Mobile Robotics @ ETH</span>
+        <span class="tag floating-tag ft3">Computer Vision</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="about reveal" id="about">
+    <div class="wrap">
+      <div class="about-inner">
+        <div>
+          <span class="section-eyebrow">About</span>
+          <p class="statement">Bridging <em>research</em> and <em>hands-on engineering</em> — from autonomous driving, to warehouse robotics, to AR devices, and now autonomous robots on construction sites.</p>
+          <p class="about-copy">Currently a Postdoc at ETH Zurich (RSL), I specialize in the navigation and localization of mobile robots on construction sites. My PhD from the University of Bonn focused on visual place recognition within complex, dynamic environments.</p>
+          <div class="tag-cloud">
+            <span class="tag">Mobile Robotics</span>
+            <span class="tag">Visual Place Recognition</span>
+            <span class="tag">Autonomous Localization</span>
+            <span class="tag">Digital Twins</span>
+            <span class="tag">GPS denied environments</span>
+          </div>
+        </div>
+        <div>
+          <div class="fact-card">
+            <div class="k">Work experience</div>
+            <div class="v">Postdoc @ ETH Zürich (RSL, CVG)<br>Microsoft, mixed reality<br>warehouse logistics<br>autonomous driving</div>
+          </div>
+          <div class="fact-card">
+            <div class="k">Education</div>
+            <div class="v">PhD, Photogrammetry &amp; Robotics — Bonn</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <span class="section-eyebrow reveal">Selected projects</span>
+      <h2 class="reveal" style="font-size:clamp(2rem,4vw,3rem); margin-bottom:44px;">Projects</h2>
+
+      <article class="project-banner reveal">
+        <img src="/assets/img/construction_navigation.JPG" alt="Autonomous robot navigating a construction site">
+        <div class="banner-body">
+          <h3>Autonomous Construction Site Digitalization</h3>
+          <p>Deploying autonomous wheeled robots for digitalization missions within buildings under construction — generating frequent Digital Twins for real-time monitoring of the site's physical state.</p>
+          <div class="banner-meta">
+            <span class="tag">Innosuisse · 2025–2027</span>
+            <span class="tag">Active</span>
+            <a class="tag" href="https://rsl.ethz.ch/research/research-programs/Autonomous_Robotic_Construction_Site_Digitalization.html" target="_blank" rel="noopener">Project page ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-banner reveal">
+        <img src="/assets/img/localization.png" alt="AR device localization on a construction site">
+        <div class="banner-body">
+          <h3>Robot and AR Devices Localization</h3>
+          <p>Construction sites are characterized by repetitive, featureless geometries. This project develops robust localization frameworks for robots and AR devices to navigate visually degraded, highly ambiguous environments.</p>
+          <div class="banner-meta">
+            <span class="tag">Design++ Fellowship · 2023–2025</span>
+            <a class="tag" href="https://designplusplus.ethz.ch/news-and-events/design--news/2024/06/research-portrait-dr-olga-vysotska.html" target="_blank" rel="noopener">Interview ↗</a>
+            <a class="tag" href="https://youtu.be/cJiRZXYKiU4?si=Qqb1RjM6TPyyp9gp" target="_blank" rel="noopener">Video ↗</a>
+            <a class="tag" href="https://grand-tour.leggedrobotics.com/dataset#mission-46-on" target="_blank" rel="noopener">Open dataset ↗</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="certifications" class="reveal">
+    <div class="wrap">
+      <span class="section-eyebrow">Verified</span>
+      <h2 style="font-size:clamp(2rem,4vw,3rem); margin-bottom:40px;">Certifications</h2>
+
+      <p class="cert-group-label">Machine learning &amp; deep learning</p>
+      <div class="cert-cluster">
+        <a class="cert-badge" href="/assets/pdfs/Coursera_deep_learning_machine_learning.pdf" target="_blank" rel="noopener"><span class="dot" style="background:var(--sky-deep);">✓</span><span class="name">Neural Networks and Deep Learning</span></a>
+        <a class="cert-badge" href="/assets/pdfs/Coursera_deep_learning_tuning.pdf" target="_blank" rel="noopener"><span class="dot" style="background:var(--moss);">✓</span><span class="name">Improving Deep Neural Networks</span></a>
+        <a class="cert-badge" href="/assets/pdfs/Coursera_machine_learning.pdf" target="_blank" rel="noopener"><span class="dot" style="background:var(--sun);">✓</span><span class="name">Machine Learning</span></a>
+      </div>
+
+      <p class="cert-group-label">Project management — Google Certificate</p>
+      <div class="cert-cluster">
+        <a class="cert-badge" href="/assets/pdfs/Coursera_google_project_management_foundations.pdf" target="_blank" rel="noopener"><span class="dot" style="background:var(--sky-deep);">✓</span><span class="name">Project Management Foundations</span></a>
+        <a class="cert-badge" href="/assets/pdfs/Coursera_project_management_initiation.pdf" target="_blank" rel="noopener"><span class="dot" style="background:var(--moss);">✓</span><span class="name">Project Management: Project Initiation</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" class="reveal">
+    <div class="wrap">
+      <span class="section-eyebrow">Selected research</span>
+      <h2 style="font-size:clamp(2rem,4vw,3rem); margin-bottom:40px;">Publications</h2>
+
+      <div class="pub-list">
+        <article class="pub-item">
+          <div class="pub-year">2025</div>
+          <div class="pub-body">
+            <h3 class="pub-title">Adaptive Thresholding for Sequence-Based Place Recognition</h3>
+            <p class="pub-meta">O. Vysotska, I. Bogoslavskyi, M. Hutter, C. Stachniss · <span class="pub-venue">ICRA, 2025</span></p>
+          </div>
+          <a class="tag" href="https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vysotska2025icra.pdf" target="_blank" rel="noopener">PDF ↗</a>
+        </article>
+
+        <article class="pub-item">
+          <div class="pub-year">2019</div>
+          <div class="pub-body">
+            <h3 class="pub-title">Effective Visual Place Recognition Using Multi-Sequence Maps</h3>
+            <p class="pub-meta">O. Vysotska, C. Stachniss · <span class="pub-venue">RAL, 2019</span></p>
+          </div>
+          <a class="tag" href="https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vysotska2019ral.pdf" target="_blank" rel="noopener">PDF ↗</a>
+        </article>
+
+        <article class="pub-item">
+          <div class="pub-year">2019</div>
+          <div class="pub-body">
+            <h3 class="pub-title">Global Localization on OpenStreetMap Using 4-Bit Semantic Descriptors</h3>
+            <p class="pub-meta">F. Yan, O. Vysotska, C. Stachniss · <span class="pub-venue">ECMR, 2019</span></p>
+          </div>
+          <a class="tag" href="https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/yan2019ecmr.pdf" target="_blank" rel="noopener">PDF ↗</a>
+        </article>
+
+        <article class="pub-item">
+          <div class="pub-year">2016</div>
+          <div class="pub-body">
+            <h3 class="pub-title">Lazy Data Association for Image Sequences Matching Under Substantial Appearance Changes</h3>
+            <p class="pub-meta">O. Vysotska, C. Stachniss · <span class="pub-venue">RAL, 2016</span></p>
+          </div>
+          <a class="tag" href="https://www.ipb.uni-bonn.de/pdfs/vysotska16ral-icra.pdf" target="_blank" rel="noopener">PDF ↗</a>
+        </article>
+
+        <article class="pub-item">
+          <div class="pub-year">2016</div>
+          <div class="pub-body">
+            <h3 class="pub-title">Exploiting Building Information from Publicly Available Maps in Graph-Based SLAM</h3>
+            <p class="pub-meta">O. Vysotska, C. Stachniss · <span class="pub-venue">IROS, 2016</span></p>
+          </div>
+          <a class="tag" href="https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vysotska16iros.pdf" target="_blank" rel="noopener">PDF ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="blob fblob1"></div>
+  <div class="wrap">
+    <h2>Let's close the loop.</h2>
+    <a class="pill-btn solid foot-cta" href="mailto:vysotskaolga@gmail.com">Get in touch</a>
+    <div class="foot-links">
+      <a href="https://github.com/ovysotska" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/olga-vysotska-84313256/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://scholar.google.com.ua/citations?user=YwPsGKQAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+    </div>
+    <div class="foot-bottom">
+      <span>Olga Vysotska</span>
+      <span>Zürich, Switzerland</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, {passive:true});
+
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ links.classList.remove('open'); });
+  });
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
